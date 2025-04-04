@@ -88,6 +88,10 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer base {
@@ -98,4 +102,41 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Animaciones para botones */
+@keyframes buttonPush {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-animate {
+  transition: all 0.3s ease;
+}
+
+.btn-animate:active {
+  animation: buttonPush 0.3s ease;
+}
+
+/* Animación para secciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
 }

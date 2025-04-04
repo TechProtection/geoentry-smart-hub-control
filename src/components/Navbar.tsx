@@ -1,10 +1,19 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { House } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      setIsMobileMenuOpen(false);
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
@@ -19,13 +28,13 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              <a href="#features" className="px-3 py-2 rounded-md text-sm font-medium text-techguard-800 hover:text-techguard-600 transition-colors">
+              <a href="#features" onClick={(e) => handleNavClick(e, 'features')} className="px-3 py-2 rounded-md text-sm font-medium text-techguard-800 hover:text-techguard-600 transition-colors">
                 Características
               </a>
-              <a href="#how-it-works" className="px-3 py-2 rounded-md text-sm font-medium text-techguard-800 hover:text-techguard-600 transition-colors">
+              <a href="#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')} className="px-3 py-2 rounded-md text-sm font-medium text-techguard-800 hover:text-techguard-600 transition-colors">
                 Cómo funciona
               </a>
-              <a href="#contact" className="px-3 py-2 rounded-md text-sm font-medium text-techguard-800 hover:text-techguard-600 transition-colors">
+              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="px-3 py-2 rounded-md text-sm font-medium text-techguard-800 hover:text-techguard-600 transition-colors">
                 Contacto
               </a>
             </div>
@@ -33,7 +42,7 @@ const Navbar: React.FC = () => {
           
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-techguard-600 hover:bg-techguard-700 text-white">
+            <Button className="bg-techguard-600 hover:bg-techguard-700 text-white btn-animate">
               Solicitar Demo
             </Button>
           </div>
@@ -42,7 +51,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-techguard-800 hover:text-techguard-600 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-techguard-800 hover:text-techguard-600 focus:outline-none btn-animate"
               aria-expanded="false"
             >
               <span className="sr-only">Abrir menú principal</span>
@@ -64,17 +73,17 @@ const Navbar: React.FC = () => {
       {/* Mobile menu, show/hide based on menu state */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
-          <a href="#features" className="block px-3 py-2 rounded-md text-base font-medium text-techguard-800 hover:bg-techguard-100">
+          <a href="#features" onClick={(e) => handleNavClick(e, 'features')} className="block px-3 py-2 rounded-md text-base font-medium text-techguard-800 hover:bg-techguard-100">
             Características
           </a>
-          <a href="#how-it-works" className="block px-3 py-2 rounded-md text-base font-medium text-techguard-800 hover:bg-techguard-100">
+          <a href="#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')} className="block px-3 py-2 rounded-md text-base font-medium text-techguard-800 hover:bg-techguard-100">
             Cómo funciona
           </a>
-          <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-techguard-800 hover:bg-techguard-100">
+          <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="block px-3 py-2 rounded-md text-base font-medium text-techguard-800 hover:bg-techguard-100">
             Contacto
           </a>
           <div className="mt-4">
-            <Button className="w-full bg-techguard-600 hover:bg-techguard-700 text-white">
+            <Button className="w-full bg-techguard-600 hover:bg-techguard-700 text-white btn-animate">
               Solicitar Demo
             </Button>
           </div>

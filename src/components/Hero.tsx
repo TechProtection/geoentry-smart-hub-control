@@ -1,11 +1,26 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { House } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (heroRef.current) {
+      heroRef.current.classList.add('animate-fadeIn');
+    }
+  }, []);
+
+  const handleDemoClick = () => {
+    const contactSection = document.getElementById('how-it-works');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="relative bg-gradient-to-b from-techguard-50 to-white overflow-hidden">
+    <div ref={heroRef} className="relative bg-gradient-to-b from-techguard-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
@@ -19,12 +34,12 @@ const Hero: React.FC = () => {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <Button className="w-full flex items-center justify-center px-8 py-3 bg-techguard-600 hover:bg-techguard-700 text-white text-base font-medium">
+                  <Button onClick={handleDemoClick} className="w-full flex items-center justify-center px-8 py-3 bg-techguard-600 hover:bg-techguard-700 text-white text-base font-medium btn-animate">
                     Solicitar Demo
                   </Button>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Button variant="outline" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-techguard-700 hover:bg-techguard-50">
+                  <Button variant="outline" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-techguard-700 hover:bg-techguard-50 btn-animate">
                     Saber más
                   </Button>
                 </div>

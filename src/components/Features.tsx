@@ -1,9 +1,38 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import FeatureCard from './FeatureCard';
 import { DoorClosed, MapPin, Lightbulb, Thermometer, BellElectric, Wifi } from 'lucide-react';
 
 const Features: React.FC = () => {
+  const featuresRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    if (featuresRef.current) {
+      const cards = featuresRef.current.querySelectorAll('.feature-card');
+      cards.forEach((card, index) => {
+        // Staggered animation
+        setTimeout(() => {
+          observer.observe(card);
+        }, index * 100);
+      });
+    }
+    
+    return () => {
+      if (featuresRef.current) {
+        const cards = featuresRef.current.querySelectorAll('.feature-card');
+        cards.forEach(card => observer.unobserve(card));
+      }
+    };
+  }, []);
+
   const features = [
     {
       title: 'Cerradura Inteligente',
@@ -49,14 +78,15 @@ const Features: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={featuresRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              title={feature.title}
-              description={feature.description}
-              icon={feature.icon}
-            />
+            <div key={index} className="feature-card opacity-0">
+              <FeatureCard
+                title={feature.title}
+                description={feature.description}
+                icon={feature.icon}
+              />
+            </div>
           ))}
         </div>
       </div>
