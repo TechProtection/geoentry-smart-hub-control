@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { House } from 'lucide-react';
+import { Home } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
   return (
     <div ref={heroRef} className="relative bg-gradient-to-b from-techguard-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
+        <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
@@ -48,10 +48,22 @@ const Hero: React.FC = () => {
           </main>
         </div>
       </div>
+      
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <div className="h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full bg-gradient-to-r from-techguard-300 to-accent1-300 rounded-bl-[100px] flex items-center justify-center">
-          <div className="w-32 h-32 bg-white rounded-full shadow-lg flex items-center justify-center animate-float">
-            <House className="h-16 w-16 text-techguard-600" />
+        <div className="relative h-64 sm:h-72 md:h-96 lg:h-full w-full">
+          <img
+            className="absolute inset-0 h-full w-full object-cover rounded-bl-[4rem] shadow-xl"
+            src="https://images.unsplash.com/photo-1558002038-BB4BB24417AE?auto=format&fit=crop&q=80&w=1000"
+            alt="Casa inteligente con tecnología GeoEntry"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-techguard-500/20 to-accent1-300/20 mix-blend-multiply rounded-bl-[4rem]" />
+          <div className="absolute bottom-8 left-8 bg-white/80 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-xs">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-full bg-techguard-100 flex items-center justify-center">
+                <Home className="h-5 w-5 text-techguard-600" />
+              </div>
+              <p className="text-sm font-medium text-gray-900">Bienvenido a tu hogar inteligente</p>
+            </div>
           </div>
         </div>
       </div>
