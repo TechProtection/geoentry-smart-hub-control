@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
   }, []);
 
   const handleDemoClick = () => {
-    const contactSection = document.getElementById('how-it-works');
+    const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
