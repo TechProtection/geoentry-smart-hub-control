@@ -51,16 +51,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      {/* Floating info badge */}
-      <div className="absolute bottom-8 left-8 bg-white/80 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-xs z-20">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-techguard-100 flex items-center justify-center">
-            <Home className="h-5 w-5 text-techguard-600" />
-          </div>
-          <p className="text-sm font-medium text-gray-900">Bienvenido a tu hogar inteligente</p>
-        </div>
-      </div>
     </div>
   );
 };
