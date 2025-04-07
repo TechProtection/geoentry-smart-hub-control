@@ -23,11 +23,6 @@ const Hero: React.FC = () => {
     <div ref={heroRef} className="relative h-screen overflow-hidden">
       {/* Full hero image as background */}
       <div className="absolute inset-0 z-0">
-        <img
-          className="h-full w-full object-cover"
-          src="https://images.unsplash.com/photo-1558002038-BB4BB24417AE?auto=format&fit=crop&q=80&w=1000"
-          alt="Casa inteligente con tecnología GeoEntry"
-        />
         <div className="absolute inset-0 bg-gradient-to-r from-techguard-600/60 to-techguard-900/60 mix-blend-multiply" />
       </div>
       
