@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Home } from 'lucide-react';
+import { Apple, PlayCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -46,6 +46,36 @@ const Hero: React.FC = () => {
                 <Button variant="outline" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm btn-animate">
                   Saber más
                 </Button>
+              </div>
+            </div>
+            
+            {/* Download app section */}
+            <div className="mt-8">
+              <p className="text-white text-lg font-medium mb-3">Descarga GeoEntry ahora</p>
+              <p className="text-white/80 text-sm mb-4">Disponible para dispositivos iOS y Android</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
+                <a 
+                  href="#" 
+                  className="bg-black text-white flex items-center justify-center px-6 py-2.5 rounded-lg hover:bg-gray-900 transition-colors w-48"
+                  aria-label="Descargar en App Store"
+                >
+                  <Apple className="w-5 h-5 mr-2" />
+                  <div className="text-left">
+                    <div className="text-xs">Descarga en</div>
+                    <div className="text-sm font-semibold">App Store</div>
+                  </div>
+                </a>
+                <a 
+                  href="#" 
+                  className="bg-black text-white flex items-center justify-center px-6 py-2.5 rounded-lg hover:bg-gray-900 transition-colors w-48"
+                  aria-label="Disponible en Google Play"
+                >
+                  <PlayCircle className="w-5 h-5 mr-2" />
+                  <div className="text-left">
+                    <div className="text-xs">Disponible en</div>
+                    <div className="text-sm font-semibold">Google Play</div>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
