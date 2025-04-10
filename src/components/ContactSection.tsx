@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Apple, PlayCircle } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { z } from 'zod';
@@ -213,6 +213,36 @@ const ContactSection: React.FC = () => {
                   <span>Cerrado</span>
                 </li>
               </ul>
+            </div>
+            
+            {/* Download app section */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <h4 className="text-lg font-medium text-gray-900 mb-4">Descarga nuestra aplicación</h4>
+              <p className="text-gray-600 text-sm mb-4">Disponible para dispositivos iOS y Android</p>
+              <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                <a 
+                  href="#" 
+                  className="bg-black text-white flex items-center justify-center px-6 py-2.5 rounded-lg hover:bg-gray-900 transition-colors w-full sm:w-auto"
+                  aria-label="Descargar en App Store"
+                >
+                  <Apple className="w-5 h-5 mr-2" />
+                  <div className="text-left">
+                    <div className="text-xs">Descarga en</div>
+                    <div className="text-sm font-semibold">App Store</div>
+                  </div>
+                </a>
+                <a 
+                  href="#" 
+                  className="bg-black text-white flex items-center justify-center px-6 py-2.5 rounded-lg hover:bg-gray-900 transition-colors w-full sm:w-auto"
+                  aria-label="Disponible en Google Play"
+                >
+                  <PlayCircle className="w-5 h-5 mr-2" />
+                  <div className="text-left">
+                    <div className="text-xs">Disponible en</div>
+                    <div className="text-sm font-semibold">Google Play</div>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
