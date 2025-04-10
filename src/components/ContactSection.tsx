@@ -196,25 +196,6 @@ const ContactSection: React.FC = () => {
                 </div>
               </div>
             </div>
-            
-            <div className="mt-8">
-              <h4 className="text-lg font-medium text-gray-900 mb-4">Horario de atención</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex justify-between">
-                  <span>Lunes - Viernes:</span>
-                  <span>9:00 - 18:00</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Sábados:</span>
-                  <span>10:00 - 14:00</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Domingos:</span>
-                  <span>Cerrado</span>
-                </li>
-              </ul>
-            </div>
-            
             {/* Download app section */}
             <div className="mt-8 pt-6 border-t border-gray-200">
               <h4 className="text-lg font-medium text-gray-900 mb-4">Descarga nuestra aplicación</h4>
